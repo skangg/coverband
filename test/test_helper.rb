@@ -81,9 +81,9 @@ def test(name, &block)
   end
 end
 
-def mock_file_hash
+def mock_file_hash(hash: 'abcd')
   mock_file = mock('mock_file')
-  mock_file.stubs(:hexdigest).returns('abcd')
+  mock_file.stubs(:hexdigest).returns(hash)
   Digest::MD5.stubs(:file).returns(mock_file)
 end
 
